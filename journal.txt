@@ -1,2 +1,3 @@
 Made basic login functionality
 Working on supabase functionality
+Feb 2nd, 5:15 pm - Done with basic supabase(user can login, sign up) and added some css
