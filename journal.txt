@@ -1,0 +1,2 @@
+Made basic login functionality
+Working on supabase functionality
