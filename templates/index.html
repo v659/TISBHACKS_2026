@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>FastAPI Connection</title>
+    <title>Login / Sign up</title>
 
     <style>
         body {
@@ -14,33 +14,28 @@
             height: 100vh;
             margin: 0;
         }
-
         .container {
             background: white;
             padding: 24px;
             border-radius: 8px;
             width: 320px;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
         }
-
         h1 {
             text-align: center;
             margin-bottom: 16px;
         }
-
         label {
             font-size: 14px;
             margin-top: 12px;
             display: block;
         }
-
         input {
             width: 100%;
             padding: 8px;
             margin-top: 4px;
             box-sizing: border-box;
         }
-
         button {
             width: 100%;
             margin-top: 16px;
@@ -50,16 +45,18 @@
         }
     </style>
 </head>
-
 <body>
     <div class="container">
-        <h1>Login</h1>
+        <h1>Login / Sign up</h1>
 
-        <label for="username">Username</label>
-        <input type="text" id="username">
+        <label for="email">Email</label>
+        <input type="text" id="email" placeholder="you@example.com">
+
+        <label for="username">Username (display name)</label>
+        <input type="text" id="username" placeholder="Your display name">
 
         <label for="password">Password</label>
-        <input type="password" id="password">
+        <input type="password" id="password" placeholder="≥6 characters">
 
         <button onclick="sendLogin()">Login / Sign up</button>
     </div>
@@ -67,4 +64,3 @@
     <script src="/static/script.js"></script>
 </body>
 </html>
-
