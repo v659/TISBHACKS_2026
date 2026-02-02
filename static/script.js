@@ -1,9 +1,10 @@
 async function sendLogin() {
+    const email = document.getElementById("email").value;
     const username = document.getElementById("username").value;
     const password = document.getElementById("password").value;
 
-    if (!username.trim() || !password.trim()) {
-        alert("Please enter both username and password");
+    if (!email.trim() || !username.trim() || !password.trim()) {
+        alert("Please fill in all fields");
         return;
     }
 
@@ -15,13 +16,8 @@ async function sendLogin() {
     try {
         const response = await fetch("/api/login", {
             method: "POST",
-            headers: {
-                "Content-Type": "application/json"
-            },
-            body: JSON.stringify({
-                username: username,
-                password: password
-            })
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ email, username, password })
         });
 
         const data = await response.json();
@@ -32,13 +28,13 @@ async function sendLogin() {
         }
 
         alert(
-            `Status: ${data.status}\nEmail: ${data.email}\nUser ID: ${data.user_id}`
+            `Status: ${data.status}\nDisplay Name: ${data.display_name}\nUser ID: ${data.user_id}`
         );
 
+        window.location.href = "/dashboard";
 
     } catch (err) {
         console.error(err);
         alert("Server unreachable");
     }
 }
-
