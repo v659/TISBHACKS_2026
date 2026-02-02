@@ -7,24 +7,38 @@ async function sendLogin() {
         return;
     }
 
+    if (password.length < 6) {
+        alert("Password must be at least 6 characters");
+        return;
+    }
+
     try {
-        const response = await fetch('/api/login', {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({ username, password }),
+        const response = await fetch("/api/login", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+                username: username,
+                password: password
+            })
         });
 
-        if (!response.ok) {
-            const text = await response.text();
-            console.error("Server error:", response.status, text);
-            alert("Login failed");
+        const data = await response.json();
+
+        if (!response.ok || data.error) {
+            alert(data.error || "Login failed");
             return;
         }
 
-        const data = await response.json();
-        const returnedUsername = Object.keys(data)[0];
-        alert(returnedUsername);
-    } catch (error) {
-        console.error('Connection failed:', error);
+        alert(
+            `Status: ${data.status}\nEmail: ${data.email}\nUser ID: ${data.user_id}`
+        );
+
+
+    } catch (err) {
+        console.error(err);
+        alert("Server unreachable");
     }
 }
+
