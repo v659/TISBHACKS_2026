@@ -43,6 +43,25 @@
             font-size: 15px;
             cursor: pointer;
         }
+        .error {
+            color: red;
+            font-size: 14px;
+            margin-top: 8px;
+            text-align: center;
+        }
+        .signup-link {
+            display: block;
+            text-align: center;
+            margin-top: 16px;
+            font-size: 14px;
+        }
+        .signup-link a {
+            text-decoration: none;
+            color: #007bff;
+        }
+        .signup-link a:hover {
+            text-decoration: underline;
+        }
     </style>
 </head>
 <body>
@@ -59,6 +78,12 @@
         <input type="password" id="password" placeholder="≥6 characters">
 
         <button onclick="sendLogin()">Login / Sign up</button>
+
+        <div id="error" class="error"></div>
+
+        <div class="signup-link">
+            <a href="/signup">Don't have an account? Sign up</a>
+        </div>
     </div>
 
     <script src="/static/script.js"></script>
